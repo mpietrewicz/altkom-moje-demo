@@ -1,15 +1,14 @@
 package pl.altkom.mojedemo.fastfood.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
 public class Produkt {
@@ -22,6 +21,11 @@ public class Produkt {
     private BigDecimal cena;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Zamowienie zamowienie;
 
+    public Produkt(String nazwa, BigDecimal cena) {
+        this.nazwa = nazwa;
+        this.cena = cena;
+    }
 }

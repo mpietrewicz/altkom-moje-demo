@@ -21,7 +21,7 @@ public class Produkt {
     private String nazwa;
     private BigDecimal cena;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    private Zamowienie zamowienie;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Zamowienie zamowienie;
 
 }

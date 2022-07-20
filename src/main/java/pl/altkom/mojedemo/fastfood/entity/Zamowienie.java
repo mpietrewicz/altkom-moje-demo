@@ -19,9 +19,9 @@ public class Zamowienie {
     @SequenceGenerator(name = "zamowienie_sequence", sequenceName = "zamowienie_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "zamowienie_sequence")
     private Long id;
-    private LocalDate dataZamowienie = LocalDate.now();
+    private LocalDate dataZamowienie;
 
-//    @OneToMany(mappedBy = "produkt")
-//    private List<Produkt> produkt;
+    @OneToMany(mappedBy = "zamowienie")
+    private List<Produkt> listaProduktow;
 
 }

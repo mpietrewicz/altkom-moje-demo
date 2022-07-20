@@ -1,8 +1,6 @@
 package pl.altkom.mojedemo.fastfood.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.altkom.mojedemo.fastfood.entity.Zamowienie;
 import pl.altkom.mojedemo.fastfood.service.ZamowienieService;
 
@@ -21,5 +19,10 @@ public class ZamowienieController {
     @GetMapping
     public List<Zamowienie> pobierzWszystkieZamowienia() {
         return zamowienieService.pobierzWszystkie();
+    }
+
+    @PostMapping(path = "/dodaj")
+    public void dodajZamowienie(@RequestBody Zamowienie zamowienie) {
+        zamowienieService.dodaj(zamowienie);
     }
 }

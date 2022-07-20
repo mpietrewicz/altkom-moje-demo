@@ -18,4 +18,9 @@ public class ZamowienieService {
     public List<Zamowienie> pobierzWszystkie() {
         return zamowienieRepository.findAll();
     }
+
+    public void dodaj(Zamowienie zamowienie) {
+        zamowienieRepository.save(zamowienie);
+    }
+
 }

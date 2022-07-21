@@ -2,25 +2,25 @@ package pl.altkom.mojedemo.fastfood.service;
 
 import org.springframework.stereotype.Service;
 import pl.altkom.mojedemo.fastfood.entity.Produkt;
-import pl.altkom.mojedemo.fastfood.repository.ProduktRepository;
+import pl.altkom.mojedemo.fastfood.repository.OldProduktRepository;
 
 import java.util.List;
 
 @Service
 public class ProduktService {
 
-    private final ProduktRepository produktRepository;
+    private final OldProduktRepository oldProduktRepository;
 
-    public ProduktService(ProduktRepository produktRepository) {
-        this.produktRepository = produktRepository;
+    public ProduktService(OldProduktRepository oldProduktRepository) {
+        this.oldProduktRepository = oldProduktRepository;
     }
 
     public List<Produkt> pobierzWszystkie() {
-        return produktRepository.findAll();
+        return oldProduktRepository.findAll();
     }
 
     public void dodaj(Produkt produkt) {
-        produktRepository.save(produkt);
+        oldProduktRepository.save(produkt);
     }
 
 }

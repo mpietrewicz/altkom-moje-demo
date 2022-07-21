@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.altkom.mojedemo.fastfood.entity.Produkt;
 import pl.altkom.mojedemo.fastfood.entity.Zamowienie;
-import pl.altkom.mojedemo.fastfood.repository.ProduktRepository;
+import pl.altkom.mojedemo.fastfood.repository.OldProduktRepository;
 import pl.altkom.mojedemo.fastfood.repository.ZamowienieRepository;
 
 import java.math.BigDecimal;
@@ -15,11 +15,11 @@ import java.util.List;
 public class InicjacjaZamowien {
 
     private final ZamowienieRepository zamowienieRepository;
-    private final ProduktRepository produktRepository;
+    private final OldProduktRepository oldProduktRepository;
 
-    public InicjacjaZamowien(ZamowienieRepository zamowienieRepository, ProduktRepository produktRepository) {
+    public InicjacjaZamowien(ZamowienieRepository zamowienieRepository, OldProduktRepository oldProduktRepository) {
         this.zamowienieRepository = zamowienieRepository;
-        this.produktRepository = produktRepository;
+        this.oldProduktRepository = oldProduktRepository;
     }
 
     @Bean
@@ -28,12 +28,13 @@ public class InicjacjaZamowien {
             Produkt burger = new Produkt("burger", new BigDecimal(15));
             Produkt frytki = new Produkt("frytki", new BigDecimal(9));
             Produkt cola = new Produkt("cola", new BigDecimal(9));
-            produktRepository.save(burger);
-            produktRepository.save(frytki);
-            produktRepository.save(cola);
+            oldProduktRepository.save(burger);
+            oldProduktRepository.save(frytki);
+            oldProduktRepository.save(cola);
 
-            Zamowienie zamowienie1 = new Zamowienie("zam 1", List.of(burger, frytki, cola));
-            Zamowienie zamowienie2 = new Zamowienie("zam 2", List.of(frytki, cola));
+
+//            Zamowienie zamowienie1 = new Zamowienie("zam 1", List.of(burger, frytki, cola));
+            Zamowienie zamowienie1 = new Zamowienie("zam 1");
 
             zamowienieRepository.save(zamowienie1);
         };

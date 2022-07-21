@@ -18,12 +18,12 @@ public class Zamowienie {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "zamowienie_sequence")
     private Long id;
     private String nazwa;
-    @OneToMany
-    private List<Produkt> listaProduktow;
+//    @OneToMany
+//    private List<Produkt> listaProduktow;
 
-    public Zamowienie(String nazwa, List<Produkt> listaProduktow) {
+    public Zamowienie(String nazwa) {
         this.nazwa = nazwa;
-        this.listaProduktow = listaProduktow;
+//        this.listaProduktow = listaProduktow;
     }
 
 }

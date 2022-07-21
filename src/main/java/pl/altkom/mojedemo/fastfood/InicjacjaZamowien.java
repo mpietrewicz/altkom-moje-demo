@@ -5,8 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.altkom.mojedemo.fastfood.entity.Produkt;
 import pl.altkom.mojedemo.fastfood.entity.Zamowienie;
-import pl.altkom.mojedemo.fastfood.entity.ZamowienieRepository;
-import pl.altkom.mojedemo.fastfood.service.ZamowienieService;
+import pl.altkom.mojedemo.fastfood.repository.ZamowienieRepository;
 
 import java.math.BigDecimal;
 import java.util.List;

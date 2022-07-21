@@ -2,7 +2,7 @@ package pl.altkom.mojedemo.fastfood.service;
 
 import org.springframework.stereotype.Service;
 import pl.altkom.mojedemo.fastfood.entity.Zamowienie;
-import pl.altkom.mojedemo.fastfood.entity.ZamowienieRepository;
+import pl.altkom.mojedemo.fastfood.repository.ZamowienieRepository;
 
 import java.util.List;
 

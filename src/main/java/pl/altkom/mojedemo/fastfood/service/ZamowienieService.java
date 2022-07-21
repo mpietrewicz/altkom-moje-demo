@@ -5,6 +5,7 @@ import pl.altkom.mojedemo.fastfood.entity.Zamowienie;
 import pl.altkom.mojedemo.fastfood.repository.ZamowienieRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class ZamowienieService {
@@ -23,4 +24,7 @@ public class ZamowienieService {
         zamowienieRepository.save(zamowienie);
     }
 
+    public Zamowienie getById(Long id) {
+        return zamowienieRepository.findById(id).orElseThrow(NoSuchElementException::new);
+    }
 }

@@ -1,8 +1,8 @@
 package pl.altkom.mojedemo.fastfood.controller;
 
 import org.springframework.web.bind.annotation.*;
-import pl.altkom.mojedemo.fastfood.entity.Zamowienie;
-import pl.altkom.mojedemo.fastfood.service.ZamowienieService;
+import pl.altkom.mojedemo.fastfood.entity.Produkt;
+import pl.altkom.mojedemo.fastfood.service.ProduktService;
 
 import java.util.List;
 
@@ -10,19 +10,19 @@ import java.util.List;
 @RequestMapping(path = "api/produkt")
 public class ProduktController {
 
-    private final ZamowienieService zamowienieService;
+    private final ProduktService produktService;
 
-    public ProduktController(ZamowienieService zamowienieService) {
-        this.zamowienieService = zamowienieService;
+    public ProduktController(ProduktService produktService) {
+        this.produktService = produktService;
     }
 
     @GetMapping
-    public List<Zamowienie> pobierzWszystkieZamowienia() {
-        return zamowienieService.pobierzWszystkie();
+    public List<Produkt> pobierzWszystkieProdukty() {
+        return produktService.pobierzWszystkie();
     }
 
     @PostMapping(path = "/dodaj")
-    public void dodajZamowienie(@RequestBody Zamowienie zamowienie) {
-        zamowienieService.dodaj(zamowienie);
+    public void dodajProdukt(@RequestBody Produkt produkt) {
+        produktService.dodaj(produkt);
     }
 }

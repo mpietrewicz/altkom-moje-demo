@@ -20,10 +20,6 @@ public class Produkt {
     private String nazwa;
     private BigDecimal cena;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Zamowienie zamowienie;
-
     public Produkt(String nazwa, BigDecimal cena) {
         this.nazwa = nazwa;
         this.cena = cena;

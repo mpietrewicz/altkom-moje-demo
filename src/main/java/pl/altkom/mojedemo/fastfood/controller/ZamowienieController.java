@@ -1,5 +1,7 @@
 package pl.altkom.mojedemo.fastfood.controller;
 
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.web.bind.annotation.*;
 import pl.altkom.mojedemo.fastfood.entity.Zamowienie;
 import pl.altkom.mojedemo.fastfood.service.ZamowienieService;
@@ -19,6 +21,16 @@ public class ZamowienieController {
     @GetMapping
     public List<Zamowienie> pobierzWszystkieZamowienia() {
         return zamowienieService.pobierzWszystkie();
+    }
+
+    @GetMapping(path = "/{id}")
+    public EntityModel<Zamowienie> pobierzZamowienie(@PathVariable("id") Long id) {
+        Zamowienie zamowienie = zamowienieService.getById(id);
+        EntityModel<Zamowienie> model = EntityModel.of(zamowienie);
+        WebMvcLinkBuilder linkDoZamowien = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass())
+                .pobierzWszystkieZamowienia());
+        model.add(linkDoZamowien.withRel("wszystkie-zamowienia"));
+        return model;
     }
 
     @PostMapping(path = "/dodaj")
